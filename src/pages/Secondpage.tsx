@@ -135,7 +135,7 @@ const Secondpage = () => {
           onClick={() => Resetans()}
           className="px-4 py-2 bg-red-500 text-white w-[60%] rounded-[10px] ml-3 text-lg font-bold"
         >
-          Reset all answer! 🥺💓
+          Reset all answer! 🥺
         </button>
       </div>
       {selectedanswers.length === 10 && (
