@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useSound from "use-sound";
 
 const Firstpage = () => {
   const [showButton, setShowButton] = useState(false);
+  const [play] = useSound("./next.mp3");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -12,7 +14,7 @@ const Firstpage = () => {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="w-full relative h-screen overflow-y-auto flex flex-col gap-2 items-center justify-center">
+    <div className="w-full relative h-screen pb-5 overflow-y-auto flex flex-col gap-2 items-center justify-center">
       <p className="text-[#8a570a] text-4xl font-bold">🎉Happy🎉</p>
       <p className="font-poppins text-7xl text-[#5d3d0d] ">Birthday</p>
       <img
@@ -39,7 +41,7 @@ const Firstpage = () => {
       <img
         src="./bollons.gif"
         alt=""
-        className="absolute w-30 -z-10 h-40 top-5 right-0"
+        className="absolute -scale-x-100 w-30 -z-10 h-40 top-5 right-0"
       />
       <img
         src="./bollons.gif"
@@ -53,6 +55,7 @@ const Firstpage = () => {
       >
         <Link
           to={"/second"}
+          onClick={() => play()}
           className="px-4 py-2 animate-pulse rounded-[10px] bg-pink-700 text-white text-lg font-bold"
         >
           Let Start!🥺💓

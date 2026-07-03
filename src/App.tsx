@@ -7,6 +7,7 @@ import Fouthpage from "./pages/Fouthpage";
 function App() {
   return (
     <>
+      <audio hidden controls src={"./song.mp3"} autoPlay loop />
       <Routes>
         <Route path="/" element={<Firstpage />} />
         <Route path="/second" element={<Secondpage />} />

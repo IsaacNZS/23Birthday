@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "../components/ui/table";
+import useSound from "use-sound";
 
 const Thirdpage = () => {
   const Myanswer = [
@@ -48,6 +49,7 @@ const Thirdpage = () => {
   const dif = Myanswer.length - same;
   const sameRate = ((same / Myanswer.length) * 100).toFixed(0);
   const difRate = ((dif / Myanswer.length) * 100).toFixed(0);
+  const [play] = useSound("./next.mp3");
 
   return (
     <div className="w-full flex-col relative flex items-center justify-center gap-4 h-screen">
@@ -103,6 +105,7 @@ const Thirdpage = () => {
       </div>
       <Link
         to={"/fouth"}
+        onClick={() => play()}
         className="px-4 py-2 animate-pulse rounded-[10px] bg-pink-700 text-white text-lg font-bold"
       >
         Next 🥺💓

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { cn } from "../lib/utils";
 import { useEffect, useState } from "react";
+import useSound from "use-sound";
 
 const Secondpage = () => {
   const Allquestion = [
@@ -72,8 +73,11 @@ const Secondpage = () => {
     },
   ];
   const [selectedanswers, setSelectedanswers] = useState<string[]>([]);
+  const [play] = useSound("./next.mp3");
+  const [play2] = useSound("./ansewer.mp3");
 
   const AnswerFun = (questionIndex: number, ans: string) => {
+    play2();
     setSelectedanswers((prev) => {
       const updated = [...prev];
       updated[questionIndex] = ans;
@@ -85,6 +89,7 @@ const Secondpage = () => {
   };
 
   const Resetans = () => {
+    play();
     localStorage.removeItem("answer");
     setSelectedanswers([]);
   };
@@ -141,6 +146,7 @@ const Secondpage = () => {
       {selectedanswers.length === 10 && (
         <Link
           to={"/third"}
+          onClick={() => play()}
           className="px-4 py-2 animate-pulse rounded-[10px] bg-pink-700 text-white text-lg font-bold"
         >
           Submit All Answer 🥺💓

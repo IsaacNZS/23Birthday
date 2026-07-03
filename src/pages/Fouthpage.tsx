@@ -1,4 +1,22 @@
+import { useState } from "react";
+import useSound from "use-sound";
+
 const Fouthpage = () => {
+  const [loading, setloading] = useState(false);
+  const [play] = useSound("./next.mp3");
+
+  const lastfun = () => {
+    try {
+      setloading(true);
+      window.close();
+      play();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setloading(false);
+    }
+  };
+
   return (
     <div className="w-full flex-col relative flex items-center justify-center gap-4 h-screen">
       <p className="text-4xl text-[#0e39fb] font-poppins font-bold">
@@ -45,11 +63,15 @@ const Fouthpage = () => {
         className="absolute w-30 h-40 top-50 right-0"
       />
       <button
-        onClick={() => window.close()}
+        onClick={() => lastfun()}
         className="px-4 py-2 animate-pulse rounded-[10px] bg-pink-700 text-white text-lg font-bold"
       >
         <a href="viber://chat?number=%2B95943016402">
-          Time to give Arrbwar 🥺💓
+          {loading ? (
+            <p className="animate-pulse">Wait Thae Lay... 😞❤️</p>
+          ) : (
+            "Time to give Arrbwar 🥺💓"
+          )}
         </a>
       </button>
     </div>
